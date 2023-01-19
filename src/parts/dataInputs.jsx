@@ -1,28 +1,28 @@
-import { useRef } from "react";
+import { useRef } from 'react'
 
-function DataInputs(props) {
-	const textarea = useRef(null);
+function DataInputs (props) {
+  const textarea = useRef(null)
 
-	const chartTypes = [
-		{ name: "Line", type: "line" },
-		{ name: "Bar", type: "bar" },
-		{ name: "Pie", type: "pie" },
-		{ name: "Radar", type: "radar" },
-		{ name: "Polar Area", type: "polarArea" },
-	];
+  const chartTypes = [
+    { name: 'Line', type: 'line' },
+    { name: 'Bar', type: 'bar' },
+    { name: 'Pie', type: 'pie' },
+    { name: 'Radar', type: 'radar' },
+    { name: 'Polar Area', type: 'polarArea' }
+  ]
 
-	const toolTips = {
-		regex: "No need for / /",
-		rawData: "Only numeric and separatos",
-		delimiter: "Character separating data",
-		repeater: "Auto repeat pattern"
-	};
-	return (
+  const toolTips = {
+    regex: 'No need for / /',
+    rawData: 'Only numeric and separatos',
+    delimiter: 'Character separating data',
+    repeater: 'Auto repeat pattern'
+  }
+  return (
 		<>
-			{/* 
-			
+			{/*
+
 				Min-max value for Y-axis
-			
+
 			*/}
 			<div>
 				<article>
@@ -83,9 +83,9 @@ function DataInputs(props) {
 					<details>
 						<summary>Axis X settings</summary>
 						<div>
-							{/* 
+							{/*
 							Set custom names for X axis instead of numbers
-						
+
 						*/}
 							<div>
 								<label htmlFor="rawLabels">
@@ -146,9 +146,9 @@ function DataInputs(props) {
 					</details>
 				</article>
 
-				{/* 
+				{/*
 
-					Inputs for data for the chart	
+					Inputs for data for the chart
 
 				*/}
 				{props.chartData.map((chartData, index) => (
@@ -161,10 +161,10 @@ function DataInputs(props) {
 									type="text"
 									placeholder="Label for X"
 									onChange={(e) =>
-										props.handleChangeDataSetProperty(
-											e,
-											index
-										)
+									  props.handleChangeDataSetProperty(
+									    e,
+									    index
+									  )
 									}
 									value={chartData.dataSetName}
 								/>
@@ -182,10 +182,10 @@ function DataInputs(props) {
 									placeholder="Data for chart"
 									value={chartData.rawData}
 									onChange={(e) =>
-										props.handleDataXChange(
-											e.target.value,
-											index
-										)
+									  props.handleDataXChange(
+									    e.target.value,
+									    index
+									  )
 									}
 								></textarea>
 							</label>
@@ -204,15 +204,15 @@ function DataInputs(props) {
 									data-key={index}
 									value={chartData.delimiter}
 									onChange={(e) => {
-										props.handleChangeDataSetProperty(
-											e,
-											index
-										);
-										props.handleDataXChange(
-											chartData.rawData,
-											index,
-											e.target.value
-										);
+									  props.handleChangeDataSetProperty(
+									    e,
+									    index
+									  )
+									  props.handleDataXChange(
+									    chartData.rawData,
+									    index,
+									    e.target.value
+									  )
 									}}
 								/>
 								<label
@@ -224,10 +224,10 @@ function DataInputs(props) {
 										type="checkbox"
 										name="regex"
 										onChange={(e) =>
-											props.handleChangeDataSetProperty(
-												e,
-												index
-											)
+										  props.handleChangeDataSetProperty(
+										    e,
+										    index
+										  )
 										}
 									/>
 									Regex
@@ -237,7 +237,7 @@ function DataInputs(props) {
 							<button
 								className="danger"
 								onClick={() => {
-									props.handleDeleteDataset(index);
+								  props.handleDeleteDataset(index)
 								}}
 							>
 								Delete
@@ -246,8 +246,8 @@ function DataInputs(props) {
 					</li>
 				))}
 
-				{/* 
-				
+				{/*
+
 					Get more data
 
 				*/}
@@ -261,7 +261,7 @@ function DataInputs(props) {
 			<br />
 			<div className="grid">
 				{chartTypes.map((chartType) => {
-					return (
+				  return (
 						<button
 							name="chartType"
 							key={chartType.type}
@@ -269,17 +269,17 @@ function DataInputs(props) {
 							value={chartType.type}
 							className={
 								chartType.type === props.settings[0].chartType
-									? "active"
-									: ""
+								  ? 'active'
+								  : ''
 							}
 						>
 							{chartType.name}
 						</button>
-					);
+				  )
 				})}
 			</div>
 		</>
-	);
+  )
 }
 
-export default DataInputs;
+export default DataInputs
