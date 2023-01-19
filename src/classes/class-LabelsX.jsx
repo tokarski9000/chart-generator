@@ -1,5 +1,11 @@
 class LabelsX {
-  constructor (rawLabels = '', labels = [], delimiter = '', repeater = true, regex = false) {
+  constructor (
+    rawLabels = '',
+    labels = [],
+    delimiter = '',
+    repeater = true,
+    regex = false
+  ) {
     this.rawLabels = rawLabels
     this.labels = labels
     this.delimiter = delimiter

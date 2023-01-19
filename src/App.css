@@ -23,3 +23,14 @@ li:nth-child(2n){
 [data-tooltip]:not(a, button, input){
     border-bottom: none !important;
 }
+
+.floating{
+    position: fixed;
+    top: 1vw;
+    right: 1vh;
+    width: 80px;
+    height: 80px;
+}
+.chartIcon{
+    filter: invert(1)
+}
